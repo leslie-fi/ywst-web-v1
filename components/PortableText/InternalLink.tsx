@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import client from "../../lib/sanity";
+import {sanityClient } from "@lib/sanity.api";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ const InternalLink = ({ mark, children }: any) => {
   const [postUrl, setPostUrl] = useState("");
 
   const query = '*[_type == "post" && _id == $_ref ] {publishedAt, slug}';
-  const sanityClient = client;
+  
   useEffect(() => {
     const getSlug = async () => {
       const querySlug = await sanityClient.fetch(query, {
