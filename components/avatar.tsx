@@ -1,5 +1,5 @@
 import { MainImage, Author } from ".."
-import {urlFor} from '../lib/sanity'
+import {urlForImage} from '@lib/sanity'
 
 
 type AProps = { name: string; image: string };
@@ -8,7 +8,7 @@ const Avatar = ({ name, image }: AProps) => {
   
   return (
     <div className="flex items-center">
-      <img src={image} className="w-12 h-12 rounded-full mr-4" alt={name} />
+      <img src={urlForImage(image).url() || img} className="w-12 h-12 rounded-full mr-4" alt={name} />
       <div className="text-xl font-bold">{name}</div>
     </div>
   )
