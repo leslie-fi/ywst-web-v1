@@ -29,7 +29,7 @@ const Index = ({ posts }: Props) => {
           {heroPost && (
             <HeroPost
               title={heroPost.title}
-              coverImage={heroPost.coverImage}
+              coverImage={heroPost.coverImage!}
               publishedAt={heroPost.publishedAt}
               author={heroPost.author}
               slug={heroPost.slug!.current!}

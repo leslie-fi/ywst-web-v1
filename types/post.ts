@@ -1,4 +1,4 @@
-import Author from './author'
+import {Authors as Author} from './author'
 
 type PostType = {
   slug: string
