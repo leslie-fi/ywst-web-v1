@@ -86,7 +86,7 @@ export async function getStaticProps({
 }) {
   const data: {
     posts: Post[];
-  } = await request(`${process.env.SANITY_API}`, postQuery(params.slug));
+  } = await request("https://47nyuv7w.api.sanity.io/v1/graphql/production/default", postQuery(params.slug));
   return {
     props: {
       preview,
@@ -98,7 +98,7 @@ export async function getStaticProps({
 
 export async function getStaticPaths() {
   const paths = await request(
-    `${process.env.SANITY_API}`,
+    `${"https://47nyuv7w.api.sanity.io/v1/graphql/production/default"}`,
     `{
     allPost{
       publishedAt

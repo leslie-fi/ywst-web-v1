@@ -48,7 +48,7 @@ export default Index
 export async function getStaticProps({ preview = false }) {
   const data: {
     posts: Post[];
-  } = await request(`${process.env.SANITY_API}`, getAllPosts);
+  } = await request("https://47nyuv7w.api.sanity.io/v1/graphql/production/default", getAllPosts);
 
 
 

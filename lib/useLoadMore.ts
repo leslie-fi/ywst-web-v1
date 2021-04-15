@@ -17,7 +17,7 @@ const useLoadMore = (posts: Post[]) => {
   const loadMore = async () => {
     setIsLoading(true);
 
-    await request(`${process.env.SANITY_API}`, getMorePosts(index)).then(
+    await request("https://47nyuv7w.api.sanity.io/v1/graphql/production/default", getMorePosts(index)).then(
       (morePosts: { posts: Post[] }): void => {
         if (morePosts.posts.length < 6) {
           setNoMorePosts(true);
