@@ -173,3 +173,37 @@ posts: allPost(where: {slug: {current: {eq: "${slug}"}}}) {
   }
   }
 }`;
+
+const postFields = `
+  _id,
+  name,
+  title,
+  publishedAt,
+  excerpt,
+  coverImage,
+  "slug": slug.current,
+  "author": author->{name, image},
+`;
+
+export const indexQuery = `
+*[_type == "post"] | order(publishedAt desc, _updatedAt desc) {
+  ${postFields}
+}`;
+
+export const postQuery = `
+{
+  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) | [0] {
+    content,
+    ${postFields}
+  },
+  "morePosts": *[_type == "post" && slug.current != $slug] | order(publishedAt desc, _updatedAt desc) | [0...2] {
+    content,
+    ${postFields}
+  }
+}`;
+
+export const postBySlugQuery = `
+*[_type == "post" && slug.current == $slug][0] {
+  ${postFields}
+}
+`;

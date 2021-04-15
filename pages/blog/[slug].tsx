@@ -1,13 +1,12 @@
 import { useRouter } from "next/router";
 import { request } from "graphql-request";
-import { format } from "date-fns";
 import React from "react";
 import { Post } from "../..";
 import Head from 'next/head'
 import ErrorPage from 'next/error'
-import PostBody from '../../components/Posts/postBody'
-import PostHeader from '../../components/Posts/postHeader'
-import PostTitle from '../../components/Posts/postTitle'
+import PostBody from '@components/Posts/postBody'
+import PostHeader from '@components/Posts/postHeader'
+import PostTitle from '@components/Posts/postTitle'
 const BlogPost = ({post}: {post: Post}) => {
   const { _id, _type, title, coverImage, featured,publishedAt, body, slug, excerpt, categories }: Post = post;
     const router = useRouter();

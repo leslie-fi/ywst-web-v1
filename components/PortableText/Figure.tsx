@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { urlFor } from "../../lib/sanity";
+import { urlForImage } from "@lib/sanity";
 export const Figure = (props: any) => {
   const { asset } = props.node;
 
@@ -47,7 +47,7 @@ export const Figure = (props: any) => {
       </div>
       <Image
         src={
-          urlFor(asset).width(896).format("jpg").quality(95).url() ||
+          urlForImage(asset).width(896).format("jpg").quality(95).url() ||
           "https://reddit.com/favicon.png"
         }
         width={896}
